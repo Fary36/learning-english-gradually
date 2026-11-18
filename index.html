@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b1020" />
+  <title>Learning English Gradually</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="Learning English Gradually home">
+        <span class="brand-mark">L</span>
+        <span class="brand-name">learning English<br><b>Gradually.</b></span>
+      </a>
+      <div class="side-label">MENU UTAMA</div>
+      <nav class="nav-menu">
+        <button class="nav-link active" data-page="dashboard"><span class="nav-icon">⌂</span> Dashboard</button>
+        <button class="nav-link" data-page="vocabulary"><span class="nav-icon">▤</span> Vocabulary</button>
+        <button class="nav-link" data-page="conversation"><span class="nav-icon">◌</span> Conversation</button>
+        <button class="nav-link" data-page="grammar"><span class="nav-icon">Aa</span> Grammar</button>
+        <button class="nav-link" data-page="verbs"><span class="nav-icon">↗</span> Verb Forms</button>
+        <button class="nav-link" data-page="quiz"><span class="nav-icon">✳</span> Quiz</button>
+      </nav>
+      <div class="side-label second-label">PERKEMBANGAN</div>
+      <nav class="nav-menu">
+        <button class="nav-link" data-page="progress"><span class="nav-icon">◷</span> My Progress</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="mini-card">
+          <div class="mini-spark">✦</div>
+          <b>Small steps, big progress.</b>
+          <p>Belajar sedikit demi sedikit setiap hari.</p>
+        </div>
+        <div class="profile">
+          <div class="avatar">L</div>
+          <div><b>English Learner</b><small>Beginner level</small></div>
+          <span class="profile-dots">•••</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
+        <div class="breadcrumb">Learning space <span>/</span> <b id="crumb">Dashboard</b></div>
+        <div class="top-actions">
+          <div class="streak-pill"><span>🔥</span> <b id="streakTop">0</b><small>day streak</small></div>
+          <button class="icon-button" id="resetButton" title="Reset semua progress" aria-label="Reset progress">↻</button>
+        </div>
+      </header>
+
+      <section class="page active" id="page-dashboard">
+        <div class="welcome-row">
+          <div>
+            <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR PERSONAL ENGLISH SPACE</div>
+            <h1>Keep going, <span>one word at a time.</span></h1>
+            <p class="subheading">Selamat datang! Mari bangun kemampuan bahasa Inggrismu secara bertahap.</p>
+          </div>
+          <div class="date-chip" id="todayDate">TODAY</div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-content">
+            <div class="hero-tag">✦ YOUR LEARNING JOURNEY</div>
+            <h2>Every little step<br>takes you <em>further.</em></h2>
+            <p>Latihan singkat hari ini adalah investasi untuk percakapan yang lebih percaya diri esok hari.</p>
+            <button class="primary-button" data-go="vocabulary">Start learning <span>→</span></button>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+            <div class="planet">A<span>+</span></div>
+            <div class="float-note note-one">hello!</div><div class="float-note note-two">learn ✦</div>
+            <div class="float-note note-three">practice</div>
+          </div>
+        </div>
+
+        <div class="section-heading"><div><h2>Your overview</h2><p>Ringkasan perjalanan belajarmu.</p></div><span class="muted-label">UPDATED AS YOU LEARN</span></div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-top"><span>Words learned</span><span class="stat-icon purple">Aa</span></div><strong id="wordsStat">0</strong><small>Vocabulary yang sudah dipelajari</small><div class="stat-line"><i id="wordBar"></i></div></article>
+          <article class="stat-card"><div class="stat-top"><span>Quiz accuracy</span><span class="stat-icon green">✓</span></div><strong id="accuracyStat">0%</strong><small id="quizStatText">Belum ada quiz yang dikerjakan</small><div class="stat-line"><i id="accuracyBar"></i></div></article>
+          <article class="stat-card"><div class="stat-top"><span>Total XP</span><span class="stat-icon orange">✦</span></div><strong id="xpStat">0</strong><small>Experience points terkumpul</small><div class="stat-line"><i id="xpBar"></i></div></article>
+          <article class="stat-card"><div class="stat-top"><span>Current streak</span><span class="stat-icon pink">🔥</span></div><strong id="streakStat">0 <small>days</small></strong><small>Hari aktif belajar berturut-turut</small><div class="stat-line"><i id="streakBar"></i></div></article>
+        </div>
+
+        <div class="dashboard-grid">
+          <section class="panel daily-panel">
+            <div class="panel-heading"><div><h2>Daily challenge</h2><p>Target kecil untuk hari ini.</p></div><span class="today-badge">TODAY</span></div>
+            <div class="challenge-progress"><div><b id="challengeCount">0 of 3 completed</b><span id="challengePercent">0%</span></div><div class="progress-track"><i id="challengeBar"></i></div></div>
+            <label class="challenge-item"><input type="checkbox" data-challenge="vocab"><span class="check-ui"></span><span><b>Learn 5 new words</b><small>Pelajari lima kosakata baru.</small></span><em>+10 XP</em></label>
+            <label class="challenge-item"><input type="checkbox" data-challenge="conversation"><span class="check-ui"></span><span><b>Practice a conversation</b><small>Baca dan latih satu percakapan.</small></span><em>+10 XP</em></label>
+            <label class="challenge-item"><input type="checkbox" data-challenge="quiz"><span class="check-ui"></span><span><b>Complete a mini quiz</b><small>Jawab minimal tiga pertanyaan quiz.</small></span><em>+10 XP</em></label>
+          </section>
+          <section class="panel continue-panel">
+            <div class="panel-heading"><div><h2>Continue learning</h2><p>Pick up where you want to grow.</p></div><span class="arrow-muted">↗</span></div>
+            <button class="continue-item" data-go="vocabulary"><span class="continue-icon purple-bg">Aa</span><span><b>Everyday vocabulary</b><small>Common words for daily life</small></span><span class="item-arrow">→</span></button>
+            <button class="continue-item" data-go="conversation"><span class="continue-icon blue-bg">◌</span><span><b>Simple conversations</b><small>Practice speaking naturally</small></span><span class="item-arrow">→</span></button>
+            <button class="continue-item" data-go="grammar"><span class="continue-icon orange-bg">文</span><span><b>Grammar basics</b><small>Build clear sentences</small></span><span class="item-arrow">→</span></button>
+          </section>
+        </div>
+        <div class="quote-strip"><span>“</span><p>Learning a language is a journey, not a race. <small>Belajar bahasa adalah perjalanan, bukan perlombaan.</small></p><b>KEEP GROWING ✦</b></div>
+      </section>
+
+      <section class="page" id="page-vocabulary">
+        <div class="page-intro"><div class="eyebrow">BUILD YOUR WORD BANK</div><h1>Vocabulary <span>corner.</span></h1><p>Tambah kosakata sedikit demi sedikit. Tekan ikon suara untuk mendengar pelafalannya.</p></div>
+        <div class="toolbar"><div class="search-box"><span>⌕</span><input id="vocabSearch" type="search" placeholder="Search a word or meaning..."></div><select id="vocabCategory" aria-label="Filter category"><option value="all">All categories</option><option value="Daily life">Daily life</option><option value="Feelings">Feelings</option><option value="Learning">Learning</option><option value="Action">Action</option></select></div>
+        <div class="vocab-summary"><span id="vocabCount">Showing words</span><span>Tap <b>Learned</b> when you remember a word.</span></div>
+        <div class="vocab-grid" id="vocabGrid"></div>
+      </section>
+
+      <section class="page" id="page-conversation">
+        <div class="page-intro"><div class="eyebrow">SPEAK WITH CONFIDENCE</div><h1>Daily <span>conversation.</span></h1><p>Mulai dari percakapan sederhana. Baca, dengarkan, lalu coba jawab sendiri.</p></div>
+        <div class="conversation-layout">
+          <div class="conversation-list panel">
+            <h3>Choose a situation</h3><p class="muted">Pilih topik latihan.</p>
+            <button class="topic-button selected" data-topic="introducing"><span>👋</span><span><b>Introducing yourself</b><small>Memperkenalkan diri</small></span><i>→</i></button>
+            <button class="topic-button" data-topic="hobbies"><span>🎮</span><span><b>Talking about hobbies</b><small>Membicarakan hobi</small></span><i>→</i></button>
+            <button class="topic-button" data-topic="daily"><span>☀️</span><span><b>Daily activities</b><small>Aktivitas sehari-hari</small></span><i>→</i></button>
+            <button class="topic-button" data-topic="weekend"><span>🌿</span><span><b>Weekend plans</b><small>Rencana akhir pekan</small></span><i>→</i></button>
+          </div>
+          <div class="conversation-practice panel" id="conversationContent"></div>
+        </div>
+      </section>
+
+      <section class="page" id="page-grammar">
+        <div class="page-intro"><div class="eyebrow">MAKE SENTENCES CLEAR</div><h1>Grammar <span>made simple.</span></h1><p>Pelajari dasar grammar melalui penjelasan singkat dan contoh bilingual.</p></div>
+        <div class="lesson-list" id="grammarList"></div>
+      </section>
+
+      <section class="page" id="page-verbs">
+        <div class="page-intro"><div class="eyebrow">VERB FORMS</div><h1>Verb <span>library.</span></h1><p>Kenali Verb 1, Verb 2, dan Verb 3 beserta arti dan contoh penggunaannya.</p></div>
+        <div class="toolbar"><div class="search-box"><span>⌕</span><input id="verbSearch" type="search" placeholder="Search verb..."></div><span class="table-note">V1 = present · V2 = past · V3 = past participle</span></div>
+        <div class="table-wrap"><table class="verb-table"><thead><tr><th>VERB 1</th><th>VERB 2</th><th>VERB 3</th><th>ARTI</th><th>EXAMPLE</th><th></th></tr></thead><tbody id="verbRows"></tbody></table></div>
+      </section>
+
+      <section class="page" id="page-quiz">
+        <div class="page-intro"><div class="eyebrow">CHECK WHAT YOU KNOW</div><h1>Quick <span>quiz.</span></h1><p>Jawab pertanyaan singkat untuk menguji pemahamanmu. Setiap jawaban punya penjelasan.</p></div>
+        <div class="quiz-layout">
+          <div class="quiz-main panel" id="quizMain"></div>
+          <aside class="quiz-side panel"><div class="quiz-side-icon">✳</div><h3>Little practice adds up.</h3><p>Jangan takut salah. Kesalahan adalah bagian dari proses belajar.</p><div class="quiz-side-stat"><span>Questions answered</span><b id="answeredCount">0</b></div><div class="quiz-side-stat"><span>Correct answers</span><b id="correctCount">0</b></div></aside>
+        </div>
+      </section>
+
+      <section class="page" id="page-progress">
+        <div class="page-intro"><div class="eyebrow">LOOK HOW FAR YOU'VE COME</div><h1>My <span>progress.</span></h1><p>Setiap latihan kecil adalah kemajuan. Semua data tersimpan di browser ini.</p></div>
+        <div class="progress-hero panel"><div><span class="eyebrow">YOUR EXPERIENCE</span><h2><span id="progressXP">0</span> XP</h2><p id="levelMessage">Your learning journey starts here.</p></div><div class="level-circle"><span id="levelNumber">1</span><small>LEVEL</small></div></div>
+        <div class="stats-grid progress-stats">
+          <article class="stat-card"><div class="stat-top"><span>Words learned</span><span class="stat-icon purple">Aa</span></div><strong id="progressWords">0</strong><small>Words in your collection</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Quiz completed</span><span class="stat-icon green">✓</span></div><strong id="progressQuizzes">0</strong><small>Total answers submitted</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Correct answers</span><span class="stat-icon orange">✦</span></div><strong id="progressCorrect">0</strong><small>Answers you got right</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Best streak</span><span class="stat-icon pink">🔥</span></div><strong id="bestStreak">0</strong><small>Consecutive learning days</small></article>
+        </div>
+        <div class="panel achievements"><div class="panel-heading"><div><h2>Your milestones</h2><p>Milestone terbuka seiring kamu belajar.</p></div></div><div class="achievement-grid" id="achievementGrid"></div></div>
+      </section>
+
+      <footer class="footer">MADE FOR YOUR DAILY PROGRESS <span>✦</span> LEARNING ENGLISH GRADUALLY</footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
